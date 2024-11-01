@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
     // Set player's default position
     int playerX = 100;
     int playerY = 100;
-    int speed = 4;
+    int playerSpeed = 4;
     
     public GamePanel(){
         
@@ -69,6 +69,19 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void update(){
+        
+        if(keyH.upPressed == true){
+            playerY -= playerSpeed;
+        }
+        else if(keyH.downPressed == true){
+            playerY += playerSpeed;
+        }
+        else if(keyH.leftPressed == true){
+            playerX -= playerSpeed;
+        }
+        else if(keyH.rightPressed == true){
+            playerX += playerSpeed;
+        }
         
     }
     public void paintComponent(Graphics g){ // Standart method to draw things into the JPanel
