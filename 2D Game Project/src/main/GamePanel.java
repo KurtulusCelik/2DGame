@@ -26,13 +26,21 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels
     final int screenHeight = tileSize * maxScreenRow; // 576 pixels
     
+    KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    
+    // Set player's default position
+    int playerX = 100;
+    int playerY = 100;
+    int speed = 4;
     
     public GamePanel(){
         
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); // Size of the screen (Width & Height)
         this.setBackground(Color.black); // Background colour of the screen
         this.setDoubleBuffered(true);
+        this.addKeyListener(keyH); // Gamepanel can recognize key inputs now
+        this.setFocusable(true);
         
         
     }
@@ -71,7 +79,7 @@ public class GamePanel extends JPanel implements Runnable{
         
         g2.setColor(Color.white);
         
-        g2.fillRect(100, 100, tileSize, tileSize);
+        g2.fillRect(playerX, playerY, tileSize, tileSize);
         
         g2.dispose();
     }
