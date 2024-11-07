@@ -41,13 +41,13 @@ public class TileManager {
         
         try{
             tile[0] = new Tile();
-            tile[0].image = ImageIO.read(new FileInputStream("res/tiles/grass.png"));
+            tile[0].image = ImageIO.read(new FileInputStream("src/res/tiles/grass.png"));
             
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(new FileInputStream("res/tiles/wall.png"));
+            tile[1].image = ImageIO.read(new FileInputStream("src/res/tiles/wall.png"));
             
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(new FileInputStream("res/tiles/water.png"));
+            tile[2].image = ImageIO.read(new FileInputStream("src/res/tiles/water.png"));
             
         }catch(IOException e){
             e.printStackTrace();
@@ -57,13 +57,13 @@ public class TileManager {
     public void loadMap(){
         
         try{
-            InputStream is = getClass().getResourceAsStream(("res/maps/world01.txt"));
+            InputStream is = getClass().getResourceAsStream(("/res/maps/world01.txt"));
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             
             int col = 0;
             int row = 0;
             
-            while(col <gp.maxScreenCol && row < gp.maxScreenRow){
+            while(col < gp.maxScreenCol && row < gp.maxScreenRow){
                 
                 String line = br.readLine();
                 
@@ -84,7 +84,7 @@ public class TileManager {
             br.close();
             
         }catch(Exception e){
-            
+            e.printStackTrace();
         }
     }
     
